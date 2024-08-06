@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo de Pagamento</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <script defer src="static/script.js"></script>
+</head>
+<footer>Copyright© - Francisco Everton Rabelo</footer>
+<body>
+    <div class="container">
+        <button type="button" onclick="window.open('https://solucoes.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=', '_blank');">Consultar CNPJ</button><br/><br/>        <header>
+            <h1>RECIBOS EXAMES - SL ASSESSORIA EMPRESARIAL</h1>
+        </header>
+        <form id="reciboForm" method="POST" action="/generate_receipt">
+            <div class="empresa-cliente">
+                <label for="nomeEmpresaCliente">Nome da Empresa Cliente:</label>
+                <input type="text" id="nomeEmpresaCliente" name="nomeEmpresaCliente" placeholder="Digite o nome da empresa cliente" required>
+            </div>
+            <div class="exames">
+                <h2>Exames Admissionais</h2>
+                <textarea id="admissionais" name="admissionais" rows="5" placeholder="Nomes dos Funcionários Admissionais" oninput="calculateTotal()"></textarea>
+                
+                <h2>Exames Demissionais</h2>
+                <textarea id="demissionais" name="demissionais" rows="5" placeholder="Nomes dos Funcionários Demissionais" oninput="calculateTotal()"></textarea>
+                
+                <h2>Exames Periódicos (1 ano)</h2>
+                <textarea id="periodicos" name="periodicos" rows="5" placeholder="Nomes dos Funcionários Periódicos" oninput="calculateTotal()"></textarea>
+            </div>
+            <div class="preco-exame">
+                <label for="precoExame">Preço por Exame:</label>
+                <input type="number" id="precoExame" name="precoExame" value="70" readonly>
+            </div>
+            <div class="total-exames">
+                <label for="totalExames">Valor Total:</label>
+                <input type="text" id="totalExames" name="totalExames" readonly>
+            </div>
+            <button type="submit">Gerar Recibo</button>
+        </form>
+    </div>
+</body>
+<footer>Copyright© - Francisco Everton Rabelo</footer>
+</html>
